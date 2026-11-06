@@ -59,7 +59,7 @@ body {
   margin: 2px 0;
   font-size: 14px;
   font-weight: bold;
-  color: #000000; /* Eslogan en negro */
+  color: #000000; /* Eslogan en negro estrictamente */
 }
 
 .title-text small {
@@ -148,7 +148,7 @@ input[type="date"]::-webkit-date-and-time-value {
 
 .module-box {
   background: #ffffff;
-  border: 1.5px solid #6c757d;
+  border: 1.5px solid #6c757d; /* Marco Gris individual por bloque */
   border-radius: 6px;
   padding: 10px 12px;
   margin-bottom: 12px;
@@ -310,21 +310,21 @@ input[type="date"]::-webkit-date-and-time-value {
 }
 
 /* ========================================================
-   REGLAS ADAPTATIVAS DE IMPRESIÓN / PDF (COMPATIBLE CON MÓVILES)
+   REGLAS DE IMPRESIÓN CON MÁRGENES DE HOJA EN CADA PÁGINA (MÓVIL Y PC)
    ======================================================== */
 @media print {
   @page {
     size: auto;
-    margin: 0mm; /* Elimina pie de página automático del navegador */
+    /* Margen físico para la impresora/PDF: 12mm arriba/abajo y 10mm a los lados */
+    margin: 12mm 10mm 12mm 10mm;
   }
 
   html, body {
     background: white !important;
-    padding: 8mm !important;
+    padding: 0 !important;
     margin: 0 !important;
     height: auto !important;
     max-height: none !important;
-    min-height: 0 !important;
     overflow: visible !important;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
@@ -351,7 +351,7 @@ input[type="date"]::-webkit-date-and-time-value {
     overflow: visible !important;
   }
 
-  /* CADA BLOQUE CONSERVA SU MARCO GRIS Y SALTA DE HOJA SI NO CABE */
+  /* CADA BLOQUE CONSERVA SU MARCO GRIS COMPLETO Y MANTIENE DISTANCIA */
   .ticket-header,
   .module-box,
   .totals-section,
@@ -359,8 +359,8 @@ input[type="date"]::-webkit-date-and-time-value {
   .ticket-footer {
     border: 2px solid #6c757d !important;
     border-radius: 6px !important;
-    padding: 8px 10px !important;
-    margin-bottom: 10px !important;
+    padding: 10px 12px !important;
+    margin-bottom: 12px !important;
     page-break-inside: avoid !important;
     break-inside: avoid !important;
     background: #ffffff !important;

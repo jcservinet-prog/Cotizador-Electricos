@@ -30,30 +30,31 @@
       </div>
 
       <div class="ticket-body">
-        <!-- DATOS DEL CLIENTE CENTRADOS -->
-        <div class="row">
-          <label>Fecha:</label>
-          <input type="date" id="fecha" class="text-center">
+        
+        <!-- DATOS DEL CLIENTE -->
+        <div class="module-box">
+          <div class="row">
+            <label>Fecha:</label>
+            <input type="date" id="fecha" class="text-center">
+          </div>
+
+          <div class="row">
+            <label>Cliente:</label>
+            <input type="text" id="nombre" placeholder="Nombre completo del cliente" class="text-center">
+          </div>
+
+          <div class="row">
+            <label>Teléfono:</label>
+            <input type="text" id="telefono" placeholder="Número de teléfono" class="text-center">
+          </div>
+
+          <div class="row">
+            <label>Dirección:</label>
+            <input type="text" id="direccion" placeholder="Ubicación del trabajo" class="text-center">
+          </div>
         </div>
 
-        <div class="row">
-          <label>Cliente:</label>
-          <input type="text" id="nombre" placeholder="Nombre completo del cliente" class="text-center">
-        </div>
-
-        <div class="row">
-          <label>Teléfono:</label>
-          <input type="text" id="telefono" placeholder="Número de teléfono" class="text-center">
-        </div>
-
-        <div class="row">
-          <label>Dirección:</label>
-          <input type="text" id="direccion" placeholder="Ubicación del trabajo" class="text-center">
-        </div>
-
-        <hr>
-
-        <!-- SELECCIÓN DE MODALIDAD -->
+        <!-- SELECCIÓN DE MODALIDAD (OCULTO EN PDF) -->
         <div class="service-tabs">
           <label class="tab-btn">
             <input type="checkbox" id="chkAcometida" class="calc-trigger" checked>
@@ -101,7 +102,7 @@
             <input type="checkbox" id="chkPuestoTierra" class="calc-trigger check-lg" checked>
           </div>
 
-          <!-- CABLEADO ACOMETIDA CON CAMPO LIBRE DE MONTO EN QUETZALES -->
+          <!-- CABLEADO ACOMETIDA (MONTO LIBRE EN QUETZALES) -->
           <div class="item-row">
             <div class="item-info">
               <label>Cableado de Acometida</label>
@@ -245,17 +246,15 @@
         </div>
 
         <!-- MANO DE OBRA / ADICIONALES -->
-        <div class="item-row">
+        <div class="item-row module-box">
           <div class="item-info">
-            <label>Detalles y Otros:</label>
+            <label>Detalles adicionales: </label>
           </div>
           <div class="item-qty">
             <label>Q</label>
             <input type="number" id="inputManoObra" min="0" placeholder="0.00" value="0" class="calc-trigger custom-price-input text-right">
           </div>
         </div>
-
-        <hr>
 
         <!-- TOTALES Y DESCUENTO -->
         <div class="totals-section">
@@ -278,8 +277,9 @@
           </div>
         </div>
 
+        <!-- OBSERVACIONES -->
         <div class="comentarios-box">
-          <label class="section-label">Observaciones:</label>
+          <label class="section-label">Observaciones u otros:</label>
           <textarea id="comentarios" placeholder="Notas sobre el proyecto..."></textarea>
         </div>
 

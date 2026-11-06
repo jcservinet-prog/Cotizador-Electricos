@@ -5,8 +5,8 @@ document.getElementById('fecha').valueAsDate = new Date();
 const PRECIOS_ACOMETIDA = {
   sopContador: 450,
   cajaRH: 550,
-  cajaRegistro: 150, // Q150.00
-  puestoTierra: 150   // Q150.00
+  cajaRegistro: 150, // Q 150.00
+  puestoTierra: 150   // Q 150.00
 };
 
 // PRECIOS DE INSTALACIÓN DOMICILIAR
@@ -17,7 +17,7 @@ const PRECIOS_DOMICILIAR = {
   interruptor3Way: 150,
   tomacorriente: 95,
   instBreaker: 75,
-  tableroDistribucion: 550, // Q550.00
+  tableroDistribucion: 550, // Q 550.00
   cambioTablero: 1250,
   tuberiaMetro: 15,
   cableMetro: 15,
@@ -25,7 +25,7 @@ const PRECIOS_DOMICILIAR = {
   lamparas: 85
 };
 
-// Escuchar eventos de cálculo
+// Escuchar eventos
 const elementosCalculo = document.querySelectorAll('.calc-trigger');
 elementosCalculo.forEach(elemento => {
   elemento.addEventListener('input', calcularCotizacion);
@@ -51,7 +51,7 @@ function calcularCotizacion() {
     if (document.getElementById('chkCajaRegistro').checked) subtotal += PRECIOS_ACOMETIDA.cajaRegistro;
     if (document.getElementById('chkPuestoTierra').checked) subtotal += PRECIOS_ACOMETIDA.puestoTierra;
     
-    // Suma libre del monto ingresado en Cableado de Acometida
+    // Suma libre de cableado en Quetzales
     const montoCableado = parseFloat(document.getElementById('montoCableadoAcometida').value) || 0;
     subtotal += montoCableado;
   }
@@ -87,7 +87,7 @@ function calcularCotizacion() {
     subtotal += cantLamparas * PRECIOS_DOMICILIAR.lamparas;
   }
 
-  // Mano de Obra Libre
+  // Mano de Obra
   const precioManoObra = parseFloat(document.getElementById('inputManoObra').value) || 0;
   subtotal += precioManoObra;
 
@@ -98,10 +98,10 @@ function calcularCotizacion() {
   let totalFinal = subtotal - montoDescuento;
   if (totalFinal < 0) totalFinal = 0;
 
-  // Renderizar totales
+  // Renderizar
   document.getElementById('lblSubtotal').innerText = subtotal.toFixed(2);
   document.getElementById('lblTotalFinal').innerText = totalFinal.toFixed(2);
 }
 
-// Inicializar primer cálculo
+// Inicializar
 calcularCotizacion();
