@@ -59,7 +59,7 @@ body {
   margin: 2px 0;
   font-size: 14px;
   font-weight: bold;
-  color: #000000; /* Eslogan en negro estrictamente */
+  color: #000000; /* Eslogan en negro */
 }
 
 .title-text small {
@@ -148,7 +148,7 @@ input[type="date"]::-webkit-date-and-time-value {
 
 .module-box {
   background: #ffffff;
-  border: 1.5px solid #6c757d; /* Marco Gris individual por bloque */
+  border: 1.5px solid #6c757d; /* Marco Gris */
   border-radius: 6px;
   padding: 10px 12px;
   margin-bottom: 12px;
@@ -310,13 +310,12 @@ input[type="date"]::-webkit-date-and-time-value {
 }
 
 /* ========================================================
-   REGLAS DE IMPRESIÓN CON MÁRGENES DE HOJA EN CADA PÁGINA (MÓVIL Y PC)
+   REGLAS DE IMPRESIÓN MÓVIL Y DE ESCRITORIO RESTRUCTURADAS
    ======================================================== */
 @media print {
   @page {
-    size: auto;
-    /* Margen físico para la impresora/PDF: 12mm arriba/abajo y 10mm a los lados */
-    margin: 12mm 10mm 12mm 10mm;
+    size: letter portrait;
+    margin: 8mm 8mm 8mm 8mm; /* Margen uniforme en todas las páginas */
   }
 
   html, body {
@@ -324,7 +323,7 @@ input[type="date"]::-webkit-date-and-time-value {
     padding: 0 !important;
     margin: 0 !important;
     height: auto !important;
-    max-height: none !important;
+    width: 100% !important;
     overflow: visible !important;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
@@ -333,7 +332,7 @@ input[type="date"]::-webkit-date-and-time-value {
   .container {
     max-width: 100% !important;
     width: 100% !important;
-    margin: 0 !important;
+    margin: 0 auto !important;
     padding: 0 !important;
   }
 
@@ -351,7 +350,7 @@ input[type="date"]::-webkit-date-and-time-value {
     overflow: visible !important;
   }
 
-  /* CADA BLOQUE CONSERVA SU MARCO GRIS COMPLETO Y MANTIENE DISTANCIA */
+  /* BLOQUES PRINCIPALES CON MARGEN SUPERIOR APLICADO AL SALTAR DE HOJA */
   .ticket-header,
   .module-box,
   .totals-section,
@@ -359,15 +358,23 @@ input[type="date"]::-webkit-date-and-time-value {
   .ticket-footer {
     border: 2px solid #6c757d !important;
     border-radius: 6px !important;
-    padding: 10px 12px !important;
-    margin-bottom: 12px !important;
+    padding: 8px 10px !important;
+    margin-top: 6mm !important; /* Asegura espacio de margen al iniciar página 2 */
+    margin-bottom: 6mm !important;
     page-break-inside: avoid !important;
     break-inside: avoid !important;
     background: #ffffff !important;
   }
 
+  /* El primer elemento no requiere margen superior */
   .ticket-header {
+    margin-top: 0 !important;
     border-bottom: 2px solid #6c757d !important;
+  }
+
+  /* Ajuste de compresión para evitar que la Acometida salte de hoja sin necesidad */
+  .item-row {
+    padding: 3px 0 !important;
   }
 
   input, select, textarea {
