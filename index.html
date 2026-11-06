@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SERVI-ELECTRIC JC - Cotizador Eléctrico</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="container">
+    <div class="ticket">
+      
+      <!-- ENCABEZADO CENTRADO -->
+      <div class="ticket-header">
+        <div class="logo-title-block">
+          <img src="logo_servielectric_jc_v5_fondo_blanco.jpg" alt="Logo SERVI-ELECTRIC JC" class="header-logo">
+          <div class="title-text">
+            <h3>SERVI-ELECTRIC JC</h3>
+            <p class="slogan-text">Conexiones Duraderas!!</p>
+            <small>Servicios y Montajes Eléctricos Profesionales</small>
+          </div>
+        </div>
+        
+        <!-- NÚMERO DE COTIZACIÓN -->
+        <div class="folio-row">
+          <label>Cotización Nº</label>
+          <input type="text" id="folio" value="ELEC-001" class="text-center">
+        </div>
+      </div>
+
+      <div class="ticket-body">
+        <!-- DATOS DEL CLIENTE CENTRADOS -->
+        <div class="row">
+          <label>Fecha:</label>
+          <input type="date" id="fecha" class="text-center">
+        </div>
+
+        <div class="row">
+          <label>Cliente:</label>
+          <input type="text" id="nombre" placeholder="Nombre completo del cliente" class="text-center">
+        </div>
+
+        <div class="row">
+          <label>Teléfono:</label>
+          <input type="text" id="telefono" placeholder="Número de teléfono" class="text-center">
+        </div>
+
+        <div class="row">
+          <label>Dirección:</label>
+          <input type="text" id="direccion" placeholder="Ubicación del trabajo" class="text-center">
+        </div>
+
+        <hr>
+
+        <!-- SELECCIÓN DE MODALIDAD -->
+        <div class="service-tabs">
+          <label class="tab-btn">
+            <input type="checkbox" id="chkAcometida" class="calc-trigger" checked>
+            <span>⚡ Instalación Acometida</span>
+          </label>
+          <label class="tab-btn">
+            <input type="checkbox" id="chkDomiciliaria" class="calc-trigger" checked>
+            <span>🏠 Instalación Domiciliar</span>
+          </label>
+        </div>
+
+        <!-- SECCIÓN 1: PRECIOS DE INSTALACIÓN ACOMETIDA -->
+        <div id="sectionAcometida" class="module-box">
+          <h4 class="section-title">PRECIOS DE INSTALACIÓN ACOMETIDA</h4>
+
+          <div class="item-row">
+            <div class="item-info">
+              <label>Sop. Contador</label>
+              <small class="precio-interno">Precio: Q 450.00</small>
+            </div>
+            <input type="checkbox" id="chkSopContador" class="calc-trigger check-lg" checked>
+          </div>
+
+          <div class="item-row">
+            <div class="item-info">
+              <label>Caja RH Braket</label>
+              <small class="precio-interno">Precio: Q 550.00</small>
+            </div>
+            <input type="checkbox" id="chkCajaRH" class="calc-trigger check-lg" checked>
+          </div>
+
+          <div class="item-row">
+            <div class="item-info">
+              <label>Caja de Registro</label>
+              <small class="precio-interno">Precio: Q 150.00</small>
+            </div>
+            <input type="checkbox" id="chkCajaRegistro" class="calc-trigger check-lg" checked>
+          </div>
+
+          <div class="item-row">
+            <div class="item-info">
+              <label>Puesto a Tierra</label>
+              <small class="precio-interno">Precio: Q 150.00</small>
+            </div>
+            <input type="checkbox" id="chkPuestoTierra" class="calc-trigger check-lg" checked>
+          </div>
+
+          <!-- CABLEADO ACOMETIDA CON CAMPO LIBRE DE MONTO EN QUETZALES -->
+          <div class="item-row">
+            <div class="item-info">
+              <label>Cableado de Acometida</label>
+            </div>
+            <div class="item-qty">
+              <label>Q</label>
+              <input type="number" id="montoCableadoAcometida" min="0" placeholder="0.00" value="500" class="calc-trigger custom-price-input text-right">
+            </div>
+          </div>
+        </div>
+
+        <!-- SECCIÓN 2: PRECIOS DE INSTALACIÓN DOMICILIAR -->
+        <div id="sectionDomiciliaria" class="module-box">
+          <h4 class="section-title">PRECIOS DE INSTALACIÓN DOMICILIAR</h4>
+
+          <div class="item-row">
+            <div class="item-info">
+              <label>Lámpara + Interruptor</label>
+              <small class="precio-interno">Precio U: Q 150.00</small>
+            </div>
+            <div class="item-qty">
+              <label>Cant:</label>
+              <input type="number" id="cantLamparaInt" min="0" value="0" class="calc-trigger text-center">
+            </div>
+          </div>
+
+          <div class="item-row">
+            <div class="item-info">
+              <label>Interruptor</label>
+              <small class="precio-interno">Precio U: Q 75.00</small>
+            </div>
+            <div class="item-qty">
+              <label>Cant:</label>
+              <input type="number" id="cantSwSimple" min="0" value="2" class="calc-trigger text-center">
+            </div>
+          </div>
+
+          <div class="item-row">
+            <div class="item-info">
+              <label>Interruptor doble</label>
+              <small class="precio-interno">Precio U: Q 125.00</small>
+            </div>
+            <div class="item-qty">
+              <label>Cant:</label>
+              <input type="number" id="cantSwDoble" min="0" value="1" class="calc-trigger text-center">
+            </div>
+          </div>
+
+          <div class="item-row">
+            <div class="item-info">
+              <label>Interruptor 3-Way</label>
+              <small class="precio-interno">Precio U: Q 150.00</small>
+            </div>
+            <div class="item-qty">
+              <label>Cant:</label>
+              <input type="number" id="cantSw3Way" min="0" value="0" class="calc-trigger text-center">
+            </div>
+          </div>
+
+          <div class="item-row">
+            <div class="item-info">
+              <label>Tomacorriente</label>
+              <small class="precio-interno">Precio U: Q 95.00</small>
+            </div>
+            <div class="item-qty">
+              <label>Cant:</label>
+              <input type="number" id="cantTomas" min="0" value="4" class="calc-trigger text-center">
+            </div>
+          </div>
+
+          <div class="item-row">
+            <div class="item-info">
+              <label>Inst. Breaker</label>
+              <small class="precio-interno">Precio U: Q 75.00</small>
+            </div>
+            <div class="item-qty">
+              <label>Cant:</label>
+              <input type="number" id="cantBreakers" min="0" value="2" class="calc-trigger text-center">
+            </div>
+          </div>
+
+          <div class="item-row">
+            <div class="item-info">
+              <label>Tablero de Distribución</label>
+              <small class="precio-interno">Precio: Q 550.00</small>
+            </div>
+            <input type="checkbox" id="chkTableroDistribucion" class="calc-trigger check-lg">
+          </div>
+
+          <div class="item-row">
+            <div class="item-info">
+              <label>Cambio de Tablero</label>
+              <small class="precio-interno">Precio: Q 1,250.00</small>
+            </div>
+            <input type="checkbox" id="chkCambioTablero" class="calc-trigger check-lg">
+          </div>
+
+          <div class="item-row">
+            <div class="item-info">
+              <label>Tubería * Metro</label>
+              <small class="precio-interno">Precio metro: Q 15.00</small>
+            </div>
+            <div class="item-qty">
+              <label>Mts:</label>
+              <input type="number" id="cantTuberia" min="0" value="10" class="calc-trigger text-center">
+            </div>
+          </div>
+
+          <div class="item-row">
+            <div class="item-info">
+              <label>Cableado * Metro</label>
+              <small class="precio-interno">Precio metro: Q 15.00</small>
+            </div>
+            <div class="item-qty">
+              <label>Mts:</label>
+              <input type="number" id="cantCableMetro" min="0" value="10" class="calc-trigger text-center">
+            </div>
+          </div>
+
+          <div class="item-row">
+            <div class="item-info">
+              <label>Ducha Eléctrica</label>
+              <small class="precio-interno">Precio U: Q 250.00</small>
+            </div>
+            <div class="item-qty">
+              <label>Cant:</label>
+              <input type="number" id="cantDuchas" min="0" value="1" class="calc-trigger text-center">
+            </div>
+          </div>
+
+          <div class="item-row">
+            <div class="item-info">
+              <label>Lámparas</label>
+              <small class="precio-interno">Precio U: Q 85.00</small>
+            </div>
+            <div class="item-qty">
+              <label>Cant:</label>
+              <input type="number" id="cantLamparas" min="0" value="4" class="calc-trigger text-center">
+            </div>
+          </div>
+        </div>
+
+        <!-- MANO DE OBRA / ADICIONALES -->
+        <div class="item-row">
+          <div class="item-info">
+            <label>Detalles y Otros:</label>
+          </div>
+          <div class="item-qty">
+            <label>Q</label>
+            <input type="number" id="inputManoObra" min="0" placeholder="0.00" value="0" class="calc-trigger custom-price-input text-right">
+          </div>
+        </div>
+
+        <hr>
+
+        <!-- TOTALES Y DESCUENTO -->
+        <div class="totals-section">
+          <div class="total-row precio-interno">
+            <span>Subtotal:</span>
+            <span>Q <span id="lblSubtotal">0.00</span></span>
+          </div>
+
+          <div class="total-row discount-input-row precio-interno">
+            <label for="inputDescuento">Descuento Especial (%):</label>
+            <div class="item-qty">
+              <input type="number" id="inputDescuento" min="0" max="100" placeholder="0" value="0" class="calc-trigger text-center">
+              <span>%</span>
+            </div>
+          </div>
+
+          <div class="cuota-box">
+            <label>TOTAL DEL SERVICIO: Q</label>
+            <span id="lblTotalFinal">0.00</span>
+          </div>
+        </div>
+
+        <div class="comentarios-box">
+          <label class="section-label">Observaciones:</label>
+          <textarea id="comentarios" placeholder="Notas sobre el proyecto..."></textarea>
+        </div>
+
+      </div>
+
+      <div class="ticket-footer text-center">
+        <p>📞 5492-6532 / 3243-0074</p>
+      </div>
+
+      <div class="actions">
+        <button type="button" onclick="window.print()" class="btn-print">Guardar Cotización en PDF / Imprimir</button>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
