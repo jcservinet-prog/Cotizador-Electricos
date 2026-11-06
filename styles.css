@@ -148,7 +148,7 @@ input[type="date"]::-webkit-date-and-time-value {
 
 .module-box {
   background: #ffffff;
-  border: 1.5px solid #6c757d; /* Marco Gris para cada bloque */
+  border: 1.5px solid #6c757d;
   border-radius: 6px;
   padding: 10px 12px;
   margin-bottom: 12px;
@@ -310,20 +310,24 @@ input[type="date"]::-webkit-date-and-time-value {
 }
 
 /* ========================================================
-   REGLAS DINÁMICAS DE IMPRESIÓN Y PDF (MULTIPÁGINA EN HOJAS CARTA Y OFICIO)
+   REGLAS ADAPTATIVAS DE IMPRESIÓN / PDF (COMPATIBLE CON MÓVILES)
    ======================================================== */
 @media print {
   @page {
     size: auto;
-    margin: 10mm 10mm 10mm 10mm;
+    margin: 0mm; /* Elimina pie de página automático del navegador */
   }
 
   html, body {
     background: white !important;
-    padding: 0 !important;
+    padding: 8mm !important;
     margin: 0 !important;
     height: auto !important;
+    max-height: none !important;
+    min-height: 0 !important;
     overflow: visible !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 
   .container {
@@ -337,16 +341,17 @@ input[type="date"]::-webkit-date-and-time-value {
     display: none !important;
   }
 
-  /* Quitar borde exterior único para evitar recortes al dividir páginas */
   .ticket {
     box-shadow: none !important;
     border: none !important;
     padding: 0 !important;
     margin: 0 !important;
     width: 100% !important;
+    height: auto !important;
+    overflow: visible !important;
   }
 
-  /* Los bloques principales conservan su marco gris individual sin dividirse entre hojas */
+  /* CADA BLOQUE CONSERVA SU MARCO GRIS Y SALTA DE HOJA SI NO CABE */
   .ticket-header,
   .module-box,
   .totals-section,
@@ -354,8 +359,8 @@ input[type="date"]::-webkit-date-and-time-value {
   .ticket-footer {
     border: 2px solid #6c757d !important;
     border-radius: 6px !important;
-    padding: 10px 12px !important;
-    margin-bottom: 12px !important;
+    padding: 8px 10px !important;
+    margin-bottom: 10px !important;
     page-break-inside: avoid !important;
     break-inside: avoid !important;
     background: #ffffff !important;
@@ -378,7 +383,5 @@ input[type="date"]::-webkit-date-and-time-value {
   .cuota-box {
     border: 2px solid #6c757d !important;
     background: #e9ecef !important;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
   }
 }
